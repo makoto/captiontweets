@@ -1,0 +1,35 @@
+[{
+  "tweet_id":1,
+  "user_id":"TanyaCross",
+  "begin":54.315,
+  "text":"What you got there?",
+  "reply_user_id":"LaurentBranning"
+},
+{
+  "tweet_id":2,
+  "user_id":"LaurentBranning",
+  "begin":58.495,
+  "text":"Well, it was...a surprise",
+  "reply_user_id":"TanyaCross"
+},
+{
+  "tweet_id":3,
+  "user_id":"TanyaCross",
+  "begin":64.675,
+  "text":"Oh... Right.",
+  "reply_user_id":"LaurentBranning"
+},
+{
+  "tweet_id":4,
+  "user_id":"LaurentBranning",
+  "begin":66.838,
+  "text":"Why? What did you think it was?",
+  "reply_user_id":"TanyaCross"
+},
+{
+  "tweet_id":5,
+  "user_id":"TanyaCross",
+  "begin":70.168,
+  "text":"Oh, nothing. I dont know, I just... ",
+  "reply_user_id":"LaurentBranning"
+}]
