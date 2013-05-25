@@ -13,6 +13,7 @@ text {
 
 text.parent {
   fill: #1f77b4;
+  font-size: 40px;
 }
 
 circle {
@@ -40,8 +41,8 @@ circle.child {
   </head>
   <body>
     <h2>
-      Flare code size<br>
-      circle packing
+      BBC EastEnders<br>
+      Family Circle
     </h2>
     <script type="text/javascript" src="js/d3.v3.min.js"></script>
     <script type="text/javascript">
@@ -76,7 +77,7 @@ d3.json("data/circle.json", function(data) {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
-      .on("click", function(d) { return zoom(node == d ? root : d); });
+      .on("click", function(d) { console.log(d)});
 
   vis.selectAll("text")
       .data(nodes)
@@ -87,33 +88,11 @@ d3.json("data/circle.json", function(data) {
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
       .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
-      .text(function(d) { return d.name; });
+      .text(function(d) {
+        return d.name.split(" ")[0]; // Display first name only
+      });
 
-  d3.select(window).on("click", function() { zoom(root); });
 });
-
-function zoom(d, i) {
-  var k = r / d.r / 2;
-  x.domain([d.x - d.r, d.x + d.r]);
-  y.domain([d.y - d.r, d.y + d.r]);
-
-  var t = vis.transition()
-      .duration(d3.event.altKey ? 7500 : 750);
-
-  t.selectAll("circle")
-      .attr("cx", function(d) { return x(d.x); })
-      .attr("cy", function(d) { return y(d.y); })
-      .attr("r", function(d) { return k * d.r; });
-
-  t.selectAll("text")
-      .attr("x", function(d) { return x(d.x); })
-      .attr("y", function(d) { return y(d.y); })
-      .style("opacity", function(d) { return k * d.r > 20 ? 1 : 0; });
-
-  node = d;
-  d3.event.stopPropagation();
-}
-
     </script>
   </body>
 </html>
