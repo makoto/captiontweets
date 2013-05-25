@@ -1,6 +1,6 @@
 
 body {
-  font: 300 36px "Helvetica Neue";
+  font: 300 20px "Helvetica Neue";
   height: 640px;
   margin: 80px 160px 80px 160px;
   overflow: hidden;
@@ -38,7 +38,10 @@ body > ul {
 }
 
 h1 {
-  font-size: 64px;
+  font-size: 40px;
+}
+h1 img{
+  padding-right:10px;
 }
 
 h1, h2, h3 {
@@ -98,4 +101,33 @@ body > svg {
   position: absolute;
   top: -80px;
   left: -160px;
+}
+
+
+/////
+
+#circles{
+/*  width:600;
+  height:600;
+*/}
+
+#video_container{
+
+}
+
+.columns{
+  float: left;
+}
+
+.left{
+  width:50%;
+/*  background-color:green;*/
+}
+.middle{
+  width:50%;
+/*  background-color:yellow;*/
+}
+
+.border{
+  border-color: grey;
 }
