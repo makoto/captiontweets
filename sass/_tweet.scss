@@ -1,0 +1,96 @@
+//===============================================================================
+// TWEET
+//
+// <div class="tweet">
+//   <img src="img/KimFox.png" class="c-avatar">
+//   <span class="c-name"></span>
+//   <a class="c-handle"></a>
+//   <p class="t-content">
+//     <a class="t-at"></a>
+//     <span class="t-hash"></span>
+//   </p>
+//   <div class="t-meta">
+//     <span class="t-mentions"></span>
+//     <span class="t-replies"></span>
+//     <span class="t-retweets"></span>
+//     <span class="t-favorites"></span>
+//     <span class="t-date"></span>
+//   </div>
+// </div>
+//===============================================================================
+
+.tweet{
+  border-radius: 2px;
+  background: hsl(0, 0, 92);
+  padding: 7px 7px 5px 7px;
+  width: 420px;
+  margin-bottom: 2em;
+}
+
+.c-avatar{
+  border-radius: 2px;
+  float: left;
+  width: 60px;
+  height: 60px;
+  margin-right: 7px;
+}
+
+.c-name{
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.c-handle{
+
+}
+
+.t-content{
+  margin-bottom: 0;
+}
+
+.t-at{
+
+}
+
+.t-hash{
+  color: lighten($ink, 40);
+}
+
+.t-meta{
+  width: 100%;
+  margin-top: 5px;
+  text-align: right;
+}
+
+.t-mentions,
+.t-replies,
+.t-retweets,
+.t-favorites{
+  background-image: url(../img/icons.png);
+  width: 30px;
+  display: inline-block;
+  padding-left: 20px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+}
+
+.t-mentions{
+  background-position-y: -60px;
+}
+
+.t-replies{
+  background-position-y: -20px;
+}
+
+.t-retweets{
+  background-position-y: -40px;
+}
+
+.t-date{
+  font-size: .8em;
+  color: lighten($ink, 40);
+}
+
+.t-current{
+  font-size: 1.125em;
+}

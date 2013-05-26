@@ -1,0 +1,115 @@
+//===============================================================================
+// ELEMENTS
+//===============================================================================
+*{
+  // use border-box box model everywhere
+  @include box-sizing(border-box);
+
+  // set thiner font rendering for webkit browsers
+  -webkit-font-smoothing: antialiased;
+}
+
+body{
+  background-color: $paper;
+  color: $ink; 
+  font-size: 1em;
+  font-family: $body-font;
+  line-height: 1.4;
+}
+
+h1, h2, h3, h4, h5, h6,
+p,
+ul,
+ol,
+dl,
+blockquote,
+pre{
+  margin: 0 0 .6em 0;
+}
+
+ol,{
+  padding-left: 1.4em;
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+dt{
+  font-weight: bold;
+}
+
+dd{
+  margin-left: 1.4em;
+}
+
+a{
+  color: $link;
+  cursor: pointer;
+
+  &:hover{
+    color: lighten($link, 10);  
+    text-decoration: underline;
+  }
+}
+
+blockquote{
+  margin: 0;
+  padding: 0 2em;
+  border-left: .2em solid $ink;
+  font-style: italic;
+
+  p:before{
+    margin: 0 .2em 0 -.6em;
+    content: "“";
+  }
+
+  p:after{
+    content: "”";
+  }
+}
+
+pre{
+  @include border-radius(.2em);
+
+  padding: .85em 1.05em;
+  background-color: lighten($ink, 20);
+  color: $paper;
+}
+
+p code,
+p samp{
+  @include border-radius(.2em);
+
+  padding: 0 .4em;
+  border: 1px solid darken($paper, 12.5);
+  background-color: darken($paper, 4);
+}
+
+hr{
+  margin: 2em 0;
+  border: 0;
+  border-top: 1px dashed $ink;
+}
+
+button,
+input[type="button"], 
+input[type="reset"], 
+input[type="submit"]{
+  @include border-radius(2px);
+  
+  display: inline-block;
+  padding: .3em .5em;
+  border: 0;
+  background-color: darken($paper, 30);
+  color: $paper;
+  text-decoration: none;
+  font-weight: normal;
+  line-height: 1;
+
+  &:hover{
+    background-color: darken($paper, 40);
+    color: $paper;
+  }
+}
