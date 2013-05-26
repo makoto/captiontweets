@@ -50,7 +50,7 @@ var w = 700,
     y = d3.scale.linear().range([0, r]),
     node,
     root;
-
+    tweets = []
 var pack = d3.layout.pack()
     .size([r, r])
     .value(function(d) { return d.size; })
@@ -103,8 +103,14 @@ d3.json("data/captions.json", function(captions) {
       .append("svg:g")
       .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
     draw(vis, circles)
-
-
+    $('video').on('timeupdate', function(d){
+      if (this.currentTime == 0){this.currentTime = 35}
+      if (captions.length > 0 && captions[0].begin < this.currentTime) {
+        var current_tweet = captions.shift()
+        tweets.push(current_tweet)
+        $('#curret_tweet').text("@" + current_tweet.reply_user_id + "" + current_tweet.text)
+      };
+    })
   });
 });
 
@@ -115,14 +121,13 @@ d3.json("data/captions.json", function(captions) {
   </div>
   <div class="columns left">
     <div id="video_container">
-      <video src="data/videos/video.mp4" width="100%"  controls preload></video>
+      <video id="video" src="data/videos/video.mp4" width="100%"  controls ></video>
       <!-- Some dummy video for now -->
       <!-- <video src="http://benkyo.s3-website-us-east-1.amazonaws.com/benkyo_dnle.mp4" width="100%"  controls preload></video> -->
     </div>
     <div id="timeline border">
       <h5>Current Tweet</h5>
       <div id="curret_tweet">
-        Well, it was...a surprise breakfast
       </div>
     </div>
     <div id="family_tweets" class="columns right border">
