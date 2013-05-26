@@ -3,11 +3,11 @@
   "user_id":"TanyaCross",
   "begin":54.315,
   "text":"What you got there?",
-  "reply_user_id":"LaurentBranning"
+  "reply_user_id":"LaurenBranning"
 },
 {
   "tweet_id":2,
-  "user_id":"LaurentBranning",
+  "user_id":"LaurenBranning",
   "begin":58.495,
   "text":"Well, it was...a surprise breakfast",
   "reply_user_id":"TanyaCross"
@@ -17,11 +17,11 @@
   "user_id":"TanyaCross",
   "begin":64.675,
   "text":"Oh... Right.",
-  "reply_user_id":"LaurentBranning"
+  "reply_user_id":"LaurenBranning"
 },
 {
   "tweet_id":4,
-  "user_id":"LaurentBranning",
+  "user_id":"LaurenBranning",
   "begin":66.838,
   "text":"Why? What did you think it was?",
   "reply_user_id":"TanyaCross"
@@ -31,5 +31,5 @@
   "user_id":"TanyaCross",
   "begin":70.168,
   "text":"Oh, nothing. I dont know, I just... ",
-  "reply_user_id":"LaurentBranning"
+  "reply_user_id":"LaurenBranning"
 }]
