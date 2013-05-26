@@ -180,7 +180,6 @@ d3.json("data/captions.json", function(captions) {
     <!-- mustache templates -->
 
     <script type="text/mustache" id="current_tweet">
-      <div class="tweet">
         <img src="data/images/casts/{{user_id}}.png" class="c-avatar">
         <span class="c-name">{{user_id}}</span>
         <a class="c-handle">@{{user_id}}</a>
@@ -193,7 +192,6 @@ d3.json("data/captions.json", function(captions) {
         <div class="t-meta">
           <span class="t-date">26/05/13</span>
         </div>
-      </div>
     </script>
     
 
@@ -211,8 +209,8 @@ d3.json("data/captions.json", function(captions) {
     </div>
 
     <div id="timeline border">
-      <div id="curret_tweet"></div>
       <h1>Current Tweet</h1>
+      <div id="curret_tweet" class="tweet"></div>
     </div>
 
     <div id="family_tweets" class="columns right border">
