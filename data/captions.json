@@ -32,4 +32,42 @@
   "begin":70.168,
   "text":"Oh, nothing. I dont know, I just... ",
   "reply_user_id":"LaurenBranning"
-}]
+},
+{
+  "tweet_id": 10,
+  "user_id": "MaxBranning",
+  "begin": 89.52799999999999,
+  "text": "This is going to end. ",
+  "reply_user_id": "KirstyBranning"
+}, {
+  "tweet_id": 11,
+  "user_id": "MaxBranning",
+  "begin": 91.588,
+  "text": " Now. ",
+  "reply_user_id": null
+}, {
+  "tweet_id": 13,
+  "user_id": "MaxBranning",
+  "begin": 96.22800000000001,
+  "text": " 'About time you rang...' Oi, you listen to me, all right? ",
+  "reply_user_id": null
+}, {
+  "tweet_id": 14,
+  "user_id": "MaxBranning",
+  "begin": 98.75800000000001,
+  "text": " She ain't interested in seeing your brother. Do you understand me? ",
+  "reply_user_id": null
+}, {
+  "tweet_id": 15,
+  "user_id": "MaxBranning",
+  "begin": 101.75800000000001,
+  "text": " Do you understand me?  Oi, are you there? ",
+  "reply_user_id": null
+}, {
+  "tweet_id": 18,
+  "user_id": "KirstyBranning",
+  "begin": 110.108,
+  "text": " 'This is Adam. You know what to do.'Just leave it! ",
+  "reply_user_id": "MaxBranning"
+}
+]
