@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link type="text/css" rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
     <style type="text/css" media="screen">
@@ -92,9 +92,16 @@ d3.json("data/circle.json", function(data) {
 });
     </script>
 
-  <div class="header">
+  <header class="site-header">
+    <img src="data/images/BBC.png" class="branding">
+    <h1>Caption Tweets & Family Circles</h1>
+  </header>
+
+<!--   <div class="header">
     <h1 id=""><img src="http://static.bbci.co.uk/frameworks/barlesque/2.45.9/desktop/3.5/img/blq-blocks_grey_alpha.png" alt="">Caption Tweets & Family Circles</h1>
-  </div>
+  </div> -->
+
+
   <div class="columns left">
     <div id="video_container">
       <video src="data/videos/video.mp4" width="100%"  controls preload></video>
