@@ -69,6 +69,10 @@ var joinName = function(name){
   return name.replace(/\s/,"")
 }
 
+var findCharacter = function(circles, name){
+  return circles.children[7].children.filter(function(d){return d.name == name})[0]
+}
+
 
 var draw = function(vis, data){
   node = root = data;
@@ -112,6 +116,28 @@ var draw = function(vis, data){
 
 d3.json("data/captions.json", function(captions) {
   d3.json("data/circle.json", function(circles) {
+    var reactions = [
+      {
+        user_id:"Lauren Branning",
+        begin: 73,
+        number: 2,
+      },
+      {
+        user_id:"Tanya Cross",
+        begin: 78,
+        number: 5,
+      },
+      {
+        user_id:"Lauren Branning",
+        begin: 80,
+        number: 2,
+      },
+      {
+        user_id:"Lauren Branning",
+        begin: 82,
+        number: 5,
+      }
+    ]
     var template = $('#current_tweet').text()
     var vis = d3.select("#circles").insert("svg:svg", "h2")
         .attr("width", w)
@@ -127,8 +153,6 @@ d3.json("data/captions.json", function(captions) {
       if (captions.length > 0 && captions[0].begin < this.currentTime) {
         var current_tweet = captions.shift()
         tweets.push(current_tweet)
-        var string = ""
-        string = string + current_tweet.text
 
         $('#curret_tweet').html(Mustache.render(template, {
           'text':current_tweet.text,
@@ -138,8 +162,14 @@ d3.json("data/captions.json", function(captions) {
         d3.select('circle.' + joinName(current_tweet.user_id))
           .transition().duration(1000).attr('class', function(d){return 'tweeting ' + joinName(d.name)})
           .transition().duration(1000).attr('class', function(d){return 'child ' +    joinName(d.name)})
-
       };
+
+      if (reactions.length > 0 && reactions[0].begin < this.currentTime) {
+        var audience = reactions.shift()
+        var character = findCharacter(Circles, audience.user_id);
+        character.size = character.size + (audience.number * 10)
+        draw(Vis, Circles)
+      }
     })
   });
 });
@@ -173,7 +203,7 @@ d3.json("data/captions.json", function(captions) {
       <div id="curret_tweet">
       </div>
     </div>
-    <div id="family_tweets" class="columns right border">
+    <!-- <div id="family_tweets" class="columns right border">
       <h5>Family Tweets</h5>
       <table border="0" cellspacing="5" cellpadding="5">
         <tr>
@@ -193,7 +223,7 @@ d3.json("data/captions.json", function(captions) {
           <td>@</td>
         </tr>
       </table>
-    </div>
+    </div> -->
   </div>
   
   <div class="columns middle">

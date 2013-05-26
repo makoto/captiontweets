@@ -34,10 +34,12 @@ The video is currently dummy video
 ## Todo
 
 - When the family circles are clicked, show list of popular tweets on "Family tweets" section.
-- As more people fav/rt/mentions, increase the size of circles.
-
+- Display total fav/rt/mentions number for each character.
+- Add more data.
+- Polish design.
 
 ## Completed.
 
 - When a character is speaking, update his/her current dialogue at "Current Tweet"
 - When a character is speaking, highlight the character circle.
+- As more people fav/rt/mentions, increase the size of circles.
