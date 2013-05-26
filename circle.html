@@ -41,6 +41,7 @@
     </style>
     <script type="text/javascript" src="js/d3.v3.min.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="/js/mustache.js"></script>
     <script type="text/javascript">
 
 var w = 700,
@@ -54,6 +55,7 @@ var w = 700,
 var pack = d3.layout.pack()
     .size([r, r])
     .value(function(d) { return d.size; })
+
 
 var draw = function(vis, data){
   node = root = data;
@@ -97,6 +99,7 @@ var draw = function(vis, data){
 
 d3.json("data/captions.json", function(captions) {
   d3.json("data/circle.json", function(circles) {
+    var template = $('#current_tweet').text()
     var vis = d3.select("#circles").insert("svg:svg", "h2")
         .attr("width", w)
         .attr("height", h)
@@ -104,17 +107,38 @@ d3.json("data/captions.json", function(captions) {
       .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
     draw(vis, circles)
     $('video').on('timeupdate', function(d){
-      if (this.currentTime == 0){this.currentTime = 35}
+      // if (this.currentTime == 0){this.currentTime = 35}
+      if (this.currentTime == 0){this.currentTime = 50}
       if (captions.length > 0 && captions[0].begin < this.currentTime) {
         var current_tweet = captions.shift()
         tweets.push(current_tweet)
-        $('#curret_tweet').text("@" + current_tweet.reply_user_id + "" + current_tweet.text)
+        var string = ""
+        string = string + current_tweet.text
+
+        $('#curret_tweet').html(Mustache.render(template, {
+          'text':current_tweet.text,
+          'user_id': current_tweet.user_id,
+          'reply_user_id':current_tweet.reply_user_id
+        }))
       };
     })
   });
 });
 
     </script>
+
+
+    <!-- mustache templates -->
+
+    <script type="text/mustache" id="current_tweet">
+      <img src="data/images/casts/{{user_id}}.png" alt="" width="50px" height="50px">
+      {{#reply_user_id}}
+        <span class="mention"  style="color:#FF70AA">@{{reply_user_id}}</span>
+      {{/reply_user_id}}
+      {{text}}
+      <span class="mention"  style="color:#FF70AA">#bbceastenders</span>
+    </script>
+    
 
   <div class="header">
     <h1 id=""><img src="http://static.bbci.co.uk/frameworks/barlesque/2.45.9/desktop/3.5/img/blq-blocks_grey_alpha.png" alt="">Caption Tweets & Family Circles</h1>

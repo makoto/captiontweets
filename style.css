@@ -131,3 +131,11 @@ body > svg {
 .border{
   border-color: grey;
 }
+
+.mention{
+  color: #FF70AA;
+}
+
+.current_tweet{
+  background-color:#FFFFB2;
+}
