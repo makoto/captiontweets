@@ -1,0 +1,63 @@
+//===============================================================================
+// VARIABLES
+//===============================================================================
+$paper: hsl(0, 0, 100);
+$ink: hsl(0, 0, 15);
+$link: hsl(0, 89, 32);
+$header: $ink;
+
+$body-font: arial, sans-serif;
+
+$wrap-width: 1024px;
+
+//===============================================================================
+// IMPORTS
+//===============================================================================
+// COMPASS: compass css3 mixins
+@import "compass/css3";
+
+// MIXINS: define mixins for later use
+@import "_mixins";
+
+// FONTS: @font-face rules
+@import "_fonts";
+
+// NORMALIZE: normalize.css from ttp://necolas.github.io/normalize.css/
+@import "_normalize.scss";
+
+// THIRD-PARTY: styles for JS libs etc
+
+// ELEMENTS: styles for standard html elements
+@import "_elements";
+
+// HELPERS: helper classes. clear-fix etc 
+@import "_helpers";
+
+// LAYOUT: grids, wraps etc
+@import "_layout";
+
+// TYPOGRAPHY:
+@import "_typography";
+
+// SHARED-STYLES: styles used across multiple pages
+@import "_shared";
+
+// GLOBAL-ELEMENTS: elements that are used on every page. Eg headers & footers
+@import "_header";
+@import "_footer";
+
+// PAGES: styles per page
+@import "_tweet.scss";
+
+// BROWSER-FIXES: styles per page
+@import "_browser-fixes";
+
+// MEDIA-QUERIES:
+@import "_media-queries";
+
+//===============================================================================
+// DEV-STYLES
+//===============================================================================
+// playground for development
+
+

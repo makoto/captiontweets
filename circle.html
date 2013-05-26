@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
+    <link type="text/css" rel="stylesheet" href="css/styles.css"/>
   </head>
   <body>
     <style type="text/css" media="screen">
@@ -180,30 +180,42 @@ d3.json("data/captions.json", function(captions) {
     <!-- mustache templates -->
 
     <script type="text/mustache" id="current_tweet">
-      <img src="data/images/casts/{{user_id}}.png" alt="" width="50px" height="50px">
-      {{#reply_user_id}}
-        <span class="mention"  style="color:#FF70AA">@{{reply_user_id}}</span>
-      {{/reply_user_id}}
-      {{text}}
-      <span class="mention"  style="color:#FF70AA">#bbceastenders</span>
+      <div class="tweet">
+        <img src="data/images/casts/{{user_id}}.png" class="c-avatar">
+        <span class="c-name">{{user_id}}</span>
+        <a class="c-handle">@{{user_id}}</a>
+        <p class="t-content">{{text}}
+          {{#reply_user_id}}
+            <a class="t-at">@{{reply_user_id}}</a>
+          {{/reply_user_id}}
+          <span class="t-hash">#eastenders</span>
+        </p>
+        <div class="t-meta">
+          <span class="t-date">26/05/13</span>
+        </div>
+      </div>
     </script>
     
 
-  <div class="header">
-    <h1 id=""><img src="http://static.bbci.co.uk/frameworks/barlesque/2.45.9/desktop/3.5/img/blq-blocks_grey_alpha.png" alt="">Caption Tweets & Family Circles</h1>
-  </div>
-  <div class="columns left">
+  <header class="site-header">
+    <img src="data/images/BBC.png" class="branding">
+    <h1>Caption Tweets & Family Circles</h1>
+  </header>
+
+  <div class="wrap">
+
+    <div class="columns left">
+
     <div id="video_container">
-      <video id="video" src="data/videos/video.mp4" width="100%"  controls ></video>
-      <!-- Some dummy video for now -->
-      <!-- <video src="http://benkyo.s3-website-us-east-1.amazonaws.com/benkyo_dnle.mp4" width="100%"  controls preload></video> -->
+      <video id="video" src="data/videos/video.mp4" width="100%"  controls preload></video>
     </div>
+
     <div id="timeline border">
-      <h5>Current Tweet</h5>
-      <div id="curret_tweet">
-      </div>
+      <div id="curret_tweet"></div>
+      <h1>Current Tweet</h1>
     </div>
-    <!-- <div id="family_tweets" class="columns right border">
+
+    <div id="family_tweets" class="columns right border">
       <h5>Family Tweets</h5>
       <table border="0" cellspacing="5" cellpadding="5">
         <tr>
@@ -223,12 +235,16 @@ d3.json("data/captions.json", function(captions) {
           <td>@</td>
         </tr>
       </table>
-    </div> -->
-  </div>
+    </div>
+
+  </div> <!-- end .left -->
   
   <div class="columns middle">
     <div id="circles">
     </div>
   </div>
+
+  </div> <!-- end .wrap -->
+
   </body>
 </html>

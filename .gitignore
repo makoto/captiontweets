@@ -1,2 +1,6 @@
 data/videos/*
 .DS_Store
+
+# Sass stuff
+*.sassc
+.sass-cache

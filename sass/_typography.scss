@@ -1,0 +1,94 @@
+//===============================================================================
+// TYPOGRAPHY
+//===============================================================================
+h1, h2, h3, h4, h5, h6{
+  color: $header;
+}
+
+// font sizes
+.tera,
+.giga,
+.mega{
+  line-height: 1.1;
+}
+
+.tera{
+  font-size: 4.6em;
+}
+
+.giga{
+  font-size: 3.5em;
+}
+
+.mega{
+  font-size: 2.6em;
+}
+
+.alpha{
+  font-size: 2em;
+  line-height: 1.2;
+}
+
+.beta{
+  font-size: 1.5em;
+  line-height: 1.2;
+}
+
+.gamma{
+  font-size: 1.17em;
+  line-height: 1.2;
+}
+
+.delta{
+  font-size: 1em;
+  line-height: 1.2;
+}
+
+.epsilon{
+  font-size: .83em;
+  line-height: 1.2;
+}
+
+.zeta{
+  font-size: .75em;
+  line-height: 1.2;
+}
+
+.alpha,
+.beta,
+.gamma,
+.delta,
+.epsilon,
+.zeta{
+  line-height: 1.2;
+}
+
+h1{
+  @extend .alpha;
+  margin-bottom: (.6em / 2);
+}
+
+h2{
+  @extend .beta;
+  margin-bottom: (.6em / 1.5);
+}
+
+h3{
+  @extend .gamma;
+  margin-bottom: (.6em / 1.17);
+}
+
+h4{
+  @extend .delta;
+  margin-bottom: (.6em / 1);
+}
+
+h5{
+  @extend .epsilon;
+  margin-bottom: (.6em / .83);
+}
+
+h6{
+  @extend .zeta;
+  margin-bottom: (.6em / .75);
+}
