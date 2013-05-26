@@ -118,27 +118,40 @@ d3.json("data/captions.json", function(captions) {
   d3.json("data/circle.json", function(circles) {
     var reactions = [
       {
-        user_id:"Lauren Branning",
+        user_id:"Simon Pegg",
         begin: 73,
+        text: "You are really good daughter",
+        reply_user_id:"Lauren Branning",
+        avatar_url:"https://si0.twimg.com/profile_images/3100886711/a1ce2f9d800b7be20780d992ef093f9f_bigger.jpeg",
         number: 2,
       },
       {
-        user_id:"Tanya Cross",
+        user_id:"Makoto Inoue",
         begin: 78,
         number: 5,
+        text: "Say it!!",
+        reply_user_id:"Tanya Cross",
+        avatar_url:"https://si0.twimg.com/profile_images/962225896/photo__1__normal.jpg"
       },
       {
-        user_id:"Lauren Branning",
+        user_id:"Philo van Kemenade",
         begin: 80,
         number: 2,
+        text: "Well, you can't talk you your mum like that",
+        reply_user_id:"Lauren Branning",
+        avatar_url:"https://si0.twimg.com/profile_images/3150057631/fe6bff936f133a2c31b62507d7303b42_normal.jpeg"
       },
       {
-        user_id:"Lauren Branning",
+        user_id:"Digital Shoreditch",
         begin: 82,
-        number: 5,
+        text: "You should come to #ds13 and speak to us about your problem",
+        reply_user_id:"Lauren Branning",
+        avatar_url:"https://si0.twimg.com/profile_images/2228846478/digi_normal.jpg",
+        number: 5
       }
     ]
     var template = $('#current_tweet').text()
+    var reaction_template = $('#reaction_template').text()
     var vis = d3.select("#circles").insert("svg:svg", "h2")
         .attr("width", w)
         .attr("height", h)
@@ -149,7 +162,7 @@ d3.json("data/captions.json", function(captions) {
     draw(vis, circles)
     $('video').on('timeupdate', function(d){
       // if (this.currentTime == 0){this.currentTime = 35}
-      if (this.currentTime == 0){this.currentTime = 50}
+      if (this.currentTime == 0){this.currentTime = 70}
       if (captions.length > 0 && captions[0].begin < this.currentTime) {
         var current_tweet = captions.shift()
         tweets.push(current_tweet)
@@ -166,9 +179,17 @@ d3.json("data/captions.json", function(captions) {
 
       if (reactions.length > 0 && reactions[0].begin < this.currentTime) {
         var audience = reactions.shift()
-        var character = findCharacter(Circles, audience.user_id);
+        var character = findCharacter(Circles, audience.reply_user_id);
         character.size = character.size + (audience.number * 10)
         draw(Vis, Circles)
+
+        $('#reaction_tweets').html(Mustache.render(reaction_template, {
+          'text':audience.text,
+          'user_id': audience.user_id,
+          'avatar_url': audience.avatar_url,
+          'reply_user_id':audience.reply_user_id
+        }))
+
       }
     })
   });
@@ -193,7 +214,21 @@ d3.json("data/captions.json", function(captions) {
           <span class="t-date">26/05/13</span>
         </div>
     </script>
-    
+
+    <script type="text/mustache" id="reaction_template">
+        <img src="{{avatar_url}}" class="c-avatar">
+        <span class="c-name">{{user_id}}</span>
+        <a class="c-handle">@{{user_id}}</a>
+        <p class="t-content">{{text}}
+          {{#reply_user_id}}
+            <a class="t-at">@{{reply_user_id}}</a>
+          {{/reply_user_id}}
+          <span class="t-hash">#eastenders</span>
+        </p>
+        <div class="t-meta">
+          <span class="t-date">26/05/13</span>
+        </div>
+    </script>
 
   <header class="site-header">
     <img src="data/images/BBC.png" class="branding">
@@ -216,6 +251,9 @@ d3.json("data/captions.json", function(captions) {
     <div id="timeline border">
       <h5>Caption Tweet</h5>
       <div id="curret_tweet" class="tweet"></div>
+      <h5>Reaction Tweet</h5>
+      <div id="reaction_tweets" class="tweet"></div>
+      
     </div>
 
   </div> <!-- end .left -->
