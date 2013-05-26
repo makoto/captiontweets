@@ -200,47 +200,26 @@ d3.json("data/captions.json", function(captions) {
     <h1>Caption Tweets & Family Circles</h1>
   </header>
 
+  <div class="columns middle">
+    <div id="circles">
+    </div>
+  </div>
+
   <div class="wrap">
 
     <div class="columns left">
 
     <div id="video_container">
-      <video id="video" src="data/videos/video.mp4" width="100%"  controls preload></video>
+      <video id="video" src="data/videos/video.mp4" width="420px"  controls preload></video>
     </div>
 
     <div id="timeline border">
-      <h1>Current Tweet</h1>
+      <h5>Caption Tweet</h5>
       <div id="curret_tweet" class="tweet"></div>
-    </div>
-
-    <div id="family_tweets" class="columns right border">
-      <h5>Family Tweets</h5>
-      <table border="0" cellspacing="5" cellpadding="5">
-        <tr>
-          <th>Character</th>
-          <th>Tweet</th>
-          <th>Total</th>
-          <th>Fav</th>
-          <th>RT</th>
-          <th>@</th>
-        </tr>
-        <tr>
-          <td>Character</td>
-          <td>Tweet</td>
-          <th>Total</th>
-          <td>Fav</td>
-          <td>RT</td>
-          <td>@</td>
-        </tr>
-      </table>
     </div>
 
   </div> <!-- end .left -->
   
-  <div class="columns middle">
-    <div id="circles">
-    </div>
-  </div>
 
   </div> <!-- end .wrap -->
 
