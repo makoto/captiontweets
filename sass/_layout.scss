@@ -3,6 +3,17 @@
 //===============================================================================
 .wrap{
   margin: 0 auto;
-  width: 90%;
-  max-width: $wrap-width;
+  width: $wrap-width;
+}
+
+
+.columns{
+  float: left;
+}
+
+.left{
+  width:50%;
+}
+.middle{
+  width:50%;
 }

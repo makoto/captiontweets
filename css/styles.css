@@ -378,8 +378,22 @@ input[type="submit"]:hover {
 /* line 4, ../sass/_layout.scss */
 .wrap {
   margin: 0 auto;
-  width: 90%;
-  max-width: 1024px;
+  width: 1024px;
+}
+
+/* line 10, ../sass/_layout.scss */
+.columns {
+  float: left;
+}
+
+/* line 14, ../sass/_layout.scss */
+.left {
+  width: 50%;
+}
+
+/* line 17, ../sass/_layout.scss */
+.middle {
+  width: 50%;
 }
 
 /* line 4, ../sass/_typography.scss */

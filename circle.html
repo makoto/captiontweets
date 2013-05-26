@@ -97,23 +97,33 @@ d3.json("data/circle.json", function(data) {
     <h1>Caption Tweets & Family Circles</h1>
   </header>
 
-<!--   <div class="header">
-    <h1 id=""><img src="http://static.bbci.co.uk/frameworks/barlesque/2.45.9/desktop/3.5/img/blq-blocks_grey_alpha.png" alt="">Caption Tweets & Family Circles</h1>
-  </div> -->
+  <div class="wrap">
 
+    <div class="columns left">
 
-  <div class="columns left">
     <div id="video_container">
       <video src="data/videos/video.mp4" width="100%"  controls preload></video>
-      <!-- Some dummy video for now -->
-      <!-- <video src="http://benkyo.s3-website-us-east-1.amazonaws.com/benkyo_dnle.mp4" width="100%"  controls preload></video> -->
     </div>
+
     <div id="timeline border">
-      <h5>Current Tweet</h5>
-      <div id="curret_tweet">
-        Well, it was...a surprise breakfast
+      <h1>Current Tweet</h1>
+
+      <div class="tweet">
+        <img src="data/images/casts/KimFox.png" class="c-avatar">
+        <span class="c-name">Kim Fox</span>
+        <a class="c-handle">@kimfox</a>
+        <p class="t-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+          <a class="t-at">@barry</a>
+          <span class="t-hash">#eastenders</span>
+        </p>
+        <div class="t-meta">
+          <span class="t-date">26/05/13</span>
+        </div>
       </div>
+
+
     </div>
+
     <div id="family_tweets" class="columns right border">
       <h5>Family Tweets</h5>
       <table border="0" cellspacing="5" cellpadding="5">
@@ -135,11 +145,15 @@ d3.json("data/circle.json", function(data) {
         </tr>
       </table>
     </div>
-  </div>
+
+  </div> <!-- end .left -->
   
   <div class="columns middle">
     <div id="circles">
     </div>
   </div>
+
+  </div> <!-- end .wrap -->
+
   </body>
 </html>
