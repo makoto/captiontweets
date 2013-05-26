@@ -29,6 +29,11 @@
         stroke: steelblue;
       }
 
+      circle.tweeting {
+        fill: yellow;
+        stroke: yellow;
+      }
+
       circle.parent:hover {
         stroke: #ff7f0e;
         stroke-width: .5px;
@@ -56,6 +61,14 @@ var pack = d3.layout.pack()
     .size([r, r])
     .value(function(d) { return d.size; })
 
+var firstName = function(d){
+  return d.name.split(" ")[0]
+}
+
+var joinName = function(name){
+  return name.replace(/\s/,"")
+}
+
 
 var draw = function(vis, data){
   node = root = data;
@@ -65,14 +78,14 @@ var draw = function(vis, data){
       .data(nodes, function(d){ return d.name})
 
     .enter().append("svg:circle")
-      .attr("class", function(d) { return d.children ? "parent" : "child"; })
+      .attr("class", function(d) { return d.children ? "parent" : "child" + " " + joinName(d.name) ; })
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
       .on("click", function(d) { console.log(d)});
 
   vis.selectAll("circle").transition().duration(1000)
-      .attr("class", function(d) { return d.children ? "parent" : "child"; })
+      // .attr("class", function(d) { return d.children ? "parent" : "child"; })
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", function(d) { return d.r; })
@@ -87,7 +100,7 @@ var draw = function(vis, data){
       .attr("text-anchor", "middle")
       .style("opacity", function(d) { return d.r > 20 ? 1 : 0; })
       .text(function(d) {
-        return d.name.split(" ")[0]; // Display first name only
+        return firstName(d); // Display first name only
       });
 
   vis.selectAll("text").transition().duration(1000)
@@ -105,6 +118,8 @@ d3.json("data/captions.json", function(captions) {
         .attr("height", h)
       .append("svg:g")
       .attr("transform", "translate(" + (w - r) / 2 + "," + (h - r) / 2 + ")");
+    Vis = vis;
+    Circles = circles;
     draw(vis, circles)
     $('video').on('timeupdate', function(d){
       // if (this.currentTime == 0){this.currentTime = 35}
@@ -120,6 +135,10 @@ d3.json("data/captions.json", function(captions) {
           'user_id': current_tweet.user_id,
           'reply_user_id':current_tweet.reply_user_id
         }))
+        d3.select('circle.' + joinName(current_tweet.user_id))
+          .transition().duration(1000).attr('class', function(d){return 'tweeting ' + joinName(d.name)})
+          .transition().duration(1000).attr('class', function(d){return 'child ' +    joinName(d.name)})
+
       };
     })
   });
